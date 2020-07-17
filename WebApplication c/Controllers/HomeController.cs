@@ -54,9 +54,15 @@ namespace WebApplication_c.Controllers
             return val.ToString();
          //   return id.ToString();
         }
+        [HttpPost ]
+        public string GetForm(string boo, bool set )
+        {
+            return set.ToString()+ " " + boo ;
+        }
 // основний контроллер*
         public ViewResult  Index()
         {
+            ViewBag.Massage = "це часткове представлення";
             Session["name"] = "Tom";
         HttpContext.Response.Cookies["id"].Value = "ca-435w";// кука)
 
@@ -71,6 +77,12 @@ namespace WebApplication_c.Controllers
             if (id > 3) { return RedirectPermanent("/Home/Con?tact"); }
             return View("About");
             
+        }
+        
+        public ActionResult GetList()
+        {
+         //   ViewBag.Massage = "це часткове представлення";
+            return PartialView();
         }
         //вивід зображення
         // "звідси WebApplication_c.Util"

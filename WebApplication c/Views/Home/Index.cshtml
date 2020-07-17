@@ -1,10 +1,45 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
-}
-    <style>
-        body {
-            background-color: #6e9cf9;
-        }
-    </style>
 
-    <h1>    <h1>@ViewBag.Head  Патамуша магу</h1>   </h1 >
+    Layout = "~/Views/Shared/_Layout.cshtml"; //мастер сторінка
+
+
+}
+<style>
+    body {
+        background-color: #6e9cf9;
+    }
+</style>
+@Html.Partial("GetList")
+<!--    -->
+<h1>
+    @ViewBag.Head  Патамуша магу
+    <td>
+        @Html.Hidden("BookId", ViewBag.BookId as string)
+        @Html.TextBox("Person", "")
+    </td>
+</h1>
+
+
+@using (Html.BeginForm("GetForm", "Home", FormMethod.Post))
+{
+    @Html.CheckBox("set", false)<span>On</span>
+    <input type="submit" value="Send" />
+
+    @Html.RadioButton("color", "red")
+    <span>красный</span>
+    <br />
+    @Html.RadioButton("color", "blue")
+    <span>синий</span>
+    <br />
+    @Html.RadioButton("color", "green", true)
+    <span>зеленый</span>
+    <input type="submit" value="Send" />
+}
+<!--Html.TextArea("text", "привет мир", 5, 50, null)
+
+}-->
+
+
+@section Footer {
+    Всі права захищені. Або ні.
+}
