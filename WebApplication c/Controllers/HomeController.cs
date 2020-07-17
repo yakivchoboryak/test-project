@@ -66,7 +66,7 @@ namespace WebApplication_c.Controllers
             Session["name"] = "Tom";
         HttpContext.Response.Cookies["id"].Value = "ca-435w";// кука)
 
-            ViewBag.Head = "Привет мир!";
+            ViewBag.Head = "Привіт світ!";
             return View();
         }
         // /Home/GetVoid/numder      /Home/GetVoid?id=number   
